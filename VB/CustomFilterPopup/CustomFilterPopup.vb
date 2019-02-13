@@ -25,13 +25,16 @@ Namespace HowToBindToMDB
             AddHandler PopupClosed, AddressOf PivotGridRadioFilter_PopupClosed
             InvertCommand = New DelegateCommand(AddressOf Invert)
             EventManager.RegisterClassHandler(GetType(ComboBoxEditItem), ComboBoxEditItem.RequestBringIntoViewEvent, New RequestBringIntoViewEventHandler(AddressOf OnRequestBringIntoView))
+        End Sub
 
-            Dispatcher.BeginInvoke(DispatcherPriority.Loaded, New Action(Sub()
-                Dim fieldHeaderControl = LayoutTreeHelper.GetVisualParents(Parent).First(Function(i) TypeOf i Is FieldHeaderContentControl)
-                Dim filterEdit = LayoutTreeHelper.GetVisualChildren(fieldHeaderControl).OfType(Of FilterPopupEdit)().FirstOrDefault()
-                filterEdit.Visibility = System.Windows.Visibility.Collapsed
-                CType(filterEdit.Parent, Border).Visibility = System.Windows.Visibility.Collapsed
-            End Sub))
+        Protected Overrides Sub EndInitInternal(callBase As Boolean)
+            Dim fieldHeaderControl = LayoutTreeHelper.GetVisualParents(Parent).First(Function(i) TypeOf i Is FieldHeaderContentControl)
+            Dim filterEdit = LayoutTreeHelper.GetVisualChildren(fieldHeaderControl).OfType(Of FilterPopupEdit)().FirstOrDefault()
+            If filterEdit IsNot Nothing Then
+                Dim border = CType(LayoutTreeHelper.GetVisualParents(filterEdit).First(Function(i) TypeOf i Is Border), Border)
+                border.Visibility = System.Windows.Visibility.Collapsed
+            End If
+            MyBase.EndInitInternal(callBase)
         End Sub
 
         Private blockViewUpdates As Boolean
@@ -60,7 +63,8 @@ Namespace HowToBindToMDB
 
         Public Sub Invert()
             blockViewUpdates = True
-            Dim unselectedItems = ListBox.ItemsSource.Cast(Of Object)().OfType(Of PivotValueInfo)().Except(ListBox.SelectedItems.Cast(Of Object)()).ToList()
+            Dim selectedValues = ListBox.SelectedItems.Cast(Of Object)().ToArray()
+            Dim unselectedItems = ListBox.ItemsSource.Cast(Of Object)().OfType(Of PivotValueInfo)().Cast(Of Object)().Except(selectedValues).ToList()
             Me.UnselectAllItems()
             unselectedItems.ForEach(Sub(i) SelectedItems.Add(i))
             blockViewUpdates = False

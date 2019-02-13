@@ -24,13 +24,17 @@ namespace HowToBindToMDB {
             PopupClosed += new ClosePopupEventHandler(PivotGridRadioFilter_PopupClosed);
             InvertCommand = new DelegateCommand(Invert);
             EventManager.RegisterClassHandler(typeof(ComboBoxEditItem), ComboBoxEditItem.RequestBringIntoViewEvent, new RequestBringIntoViewEventHandler(OnRequestBringIntoView));
+        }
 
-            Dispatcher.BeginInvoke(DispatcherPriority.Loaded, new Action(() => {
-                var fieldHeaderControl = LayoutTreeHelper.GetVisualParents( Parent ).First(i => i is FieldHeaderContentControl);
-                var filterEdit = LayoutTreeHelper.GetVisualChildren(fieldHeaderControl).OfType<FilterPopupEdit>().FirstOrDefault();
-                filterEdit.Visibility = System.Windows.Visibility.Collapsed;
-                ((Border)filterEdit.Parent).Visibility = System.Windows.Visibility.Collapsed;
-            } ));
+        protected override void EndInitInternal(bool callBase) {
+            var fieldHeaderControl = LayoutTreeHelper.GetVisualParents(Parent).First(i => i is FieldHeaderContentControl);
+            var filterEdit = LayoutTreeHelper.GetVisualChildren(fieldHeaderControl).OfType<FilterPopupEdit>().FirstOrDefault();
+            if (filterEdit != null) {
+                var border = LayoutTreeHelper.GetVisualParents(filterEdit).First(i => i is Border) as Border;
+                border.Visibility = Visibility.Collapsed;
+            }
+
+            base.EndInitInternal(callBase);
         }
 
         bool blockViewUpdates;
