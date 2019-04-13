@@ -8,7 +8,8 @@
 <!-- default file list end -->
 # How to Implement a Custom Filter Popup
 
-This example uses a custom data template with a custom control inherited from the [ComboBoxEdit](https://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.ComboBoxEdit) class. 
+This example uses a custom data template with a custom control inherited from the [ComboBoxEdit](https://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.ComboBoxEdit) class. It implements incremental search and allows you to invert selection.
+ 
 The data template is assigned to the [PivotGridField.HeaderTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridField.HeaderTemplate) property.
 
 ![screenshot](./images/screenshot.png)
