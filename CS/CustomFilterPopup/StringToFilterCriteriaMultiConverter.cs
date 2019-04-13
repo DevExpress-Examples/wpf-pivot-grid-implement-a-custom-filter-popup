@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace HowToBindToMDB {
+namespace CustomFilterPopup {
     public class ToFilterCriteriaMultiConverter : MarkupExtension, IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
             return null;

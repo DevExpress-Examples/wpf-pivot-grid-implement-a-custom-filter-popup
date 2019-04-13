@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DevExpress.Xpf.Editors;
-using System.Windows;
-using DevExpress.Xpf.PivotGrid;
-using System.Windows.Input;
-using DevExpress.Mvvm;
-using DevExpress.Xpf.Core.Native;
-using System.Windows.Controls;
-using System.Threading;
-using System.Windows.Threading;
+﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.UI;
+using DevExpress.Xpf.Editors;
+using DevExpress.Xpf.PivotGrid;
 using DevExpress.Xpf.PivotGrid.Internal;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
-namespace HowToBindToMDB {
+namespace CustomFilterPopup
+{
 
     class PivotGridCustomFilter : ComboBoxEdit {
-
-
         public PivotGridCustomFilter() {
             PopupOpening += new OpenPopupEventHandler(PivotGridRadioFilter_PopupOpening);
             PopupClosed += new ClosePopupEventHandler(PivotGridRadioFilter_PopupClosed);
