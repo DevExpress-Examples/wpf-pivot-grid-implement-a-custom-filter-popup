@@ -6,7 +6,7 @@
         xmlns:dxci="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
         xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
         xmlns:dxpgi="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid/internal"
-        xmlns:dxep="clr-namespace:DevExpress.Xpf.Editors.Popups;assembly=DevExpress.Xpf.Core.v18.2"
+        xmlns:dxep="clr-namespace:DevExpress.Xpf.Editors.Popups;assembly=DevExpress.Xpf.Core.v19.1"
         xmlns:dxei="http://schemas.devexpress.com/winfx/2008/xaml/editors/internal"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:local="clr-namespace:HowToBindToMDB"
