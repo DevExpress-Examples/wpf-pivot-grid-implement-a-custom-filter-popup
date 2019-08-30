@@ -1,0 +1,74 @@
+﻿<Window xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  x:Class="DXPivotGrid_CustomFilterPopup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
+        xmlns:dxpgi="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid/internal"
+        xmlns:dxci="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"        
+        xmlns:local="clr-namespace:DXPivotGrid_CustomFilterPopup"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="CustomFilterPopupTemplate">
+            
+                <local:PivotGridCustomFilter DataContext="{Binding Path=(dxpgi:FieldHeader.Header), RelativeSource={RelativeSource Self}}"
+                                             AutoPopulateColumns="False" 
+                                             FocusPopupOnOpen="True"
+                                             AutoComplete="True"
+                                             PivotField="{Binding Field}" 
+                                             ValueMember="Value"
+                                             DisplayMember="DisplayText"
+                                             Visibility="{Binding Path=DataContext.IsFilterButtonVisible, RelativeSource={ RelativeSource AncestorType={x:Type dxpgi:FieldHeaderContentControl}}}"
+                                             Template="{dxci:ThemeResource {dxpgi:FieldHeaderThemeKey ResourceKey=FilterButtonTemplate}}">
+                    <local:PivotGridCustomFilter.StyleSettings>
+                        <dxg:SearchLookUpEditStyleSettings SelectionMode="Multiple" />
+                    </local:PivotGridCustomFilter.StyleSettings>
+                    <dxg:LookUpEdit.PopupContentTemplate>
+                        <ControlTemplate >
+                            <dxg:GridControl Name="PART_GridControl" AutoGenerateColumns="None">
+                                <dxg:GridControl.View>
+                                    <dxg:TableView SearchDelay="100" AutoWidth="True" NavigationStyle="Row"
+                                                       RetainSelectionOnClickOutsideCheckBoxSelector="False" 
+                                                       ShowCheckBoxSelectorColumn="True" CheckBoxSelectorColumnWidth="35" 
+                                                       ShowGroupPanel="False" AllowGrouping="False" ShowIndicator="False" 
+                                                       ScrollBarAnnotationMode="Selected"
+                                                              />
+                                </dxg:GridControl.View>
+                                <dxg:GridControl.Columns>
+                                    <dxg:GridColumn FieldName="DisplayText" Header="{Binding Field}"  />
+                                </dxg:GridControl.Columns>
+                            </dxg:GridControl>
+                        </ControlTemplate>
+                    </dxg:LookUpEdit.PopupContentTemplate>
+                </local:PivotGridCustomFilter>
+            
+        </DataTemplate>
+        <DataTemplate x:Key="FilterPopupLegacyTemplate">
+            <dxpgi:FieldPopupPlaceholder DataContext="{Binding Path=(dxpgi:FieldHeader.Header), RelativeSource={RelativeSource Self}}" 
+            Field="{Binding Field}"
+            Visibility="{Binding Path=IsFilterButtonVisible}"
+            VerticalAlignment="Top"/>
+        </DataTemplate>
+        <local:CustomFilterPopupTemplateSelector x:Key="CustomFilterPopupTemplateSelector" 
+            LegacyTemplate="{StaticResource FilterPopupLegacyTemplate}"
+            CustomTemplate="{StaticResource CustomFilterPopupTemplate}"/>
+
+        <Style TargetType="{x:Type dxpgi:FieldHeader}" >
+            <Setter Property="FilterPopupTemplateSelector" Value="{DynamicResource CustomFilterPopupTemplateSelector}" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <dxpg:PivotGridControl Name="pivotGridControl1">
+            <dxpg:PivotGridControl.Fields>
+                <dxpg:PivotGridField FieldName="ProductName" Name="fieldName" Area="RowArea" >
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField FieldName="Value" Name="fieldValue" Area="DataArea" />
+            </dxpg:PivotGridControl.Fields>
+        </dxpg:PivotGridControl>
+    </Grid>
+
+</Window>
