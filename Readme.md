@@ -14,7 +14,6 @@ The data template is assigned to the [PivotGridField.HeaderTemplate](https://doc
 
 ![screenshot](./images/screenshot.png)
 
-> Starting from v19.1 you are encouraged to implement a custom filter drop-down template and assign it to the [PivotGridField.CustomFilterPopupTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridField.CustomFilterPopupTemplate) property.
 
 See also:
 
