@@ -1,7 +1,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [DXPivotGrid_CustomFilterPopup.csproj](./CS/DXPivotGrid_CustomFilterPopup/DXPivotGrid_CustomFilterPopup.csproj) (VB: [DXPivotGrid_CustomFilterPopup.csproj](./VB/DXPivotGrid_CustomFilterPopup/CustomFilterPopup.vbproj))
+* [DXPivotGrid_CustomFilterPopup.csproj](./CS/DXPivotGrid_CustomFilterPopup/DXPivotGrid_CustomFilterPopup.csproj) (VB: [DXPivotGrid_CustomFilterPopup.csproj](./VB/DXPivotGrid_CustomFilterPopup/DXPivotGrid_CustomFilterPopup.vbproj))
 * [MainWindow.xaml](./CS/DXPivotGrid_CustomFilterPopup/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/DXPivotGrid_CustomFilterPopup/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/DXPivotGrid_CustomFilterPopup/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/DXPivotGrid_CustomFilterPopup/MainWindow.xaml.vb))
 * [CustomFilterPopupTemplateSelector.cs](./CS/DXPivotGrid_CustomFilterPopup/CustomFilterPopupTemplateSelector.cs) (VB: [CustomFilterPopupTemplateSelector.vb](./VB/DXPivotGrid_CustomFilterPopup/CustomFilterPopupTemplateSelector.vb))
