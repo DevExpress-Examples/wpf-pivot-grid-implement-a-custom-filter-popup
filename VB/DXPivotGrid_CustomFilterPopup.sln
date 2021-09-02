@@ -1,6 +1,6 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2012
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DXPivotGrid_CustomFilterPopup", "DXPivotGrid_CustomFilterPopup\DXPivotGrid_CustomFilterPopup.vbproj", "{ED62B3B8-F6BE-40AE-9E58-19BB41DE4D0C}"
