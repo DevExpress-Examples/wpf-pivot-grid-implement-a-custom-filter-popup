@@ -6,7 +6,7 @@
 
 # Pivot Grid for WPF - How to Implement a Custom Filter Popup
 
-This example uses custom FilterPopupTemplateSelector that allows to implement different filter data templates for different fields. Now it replaces all default filters with a custom control inherited from the [LookUpEdit](https://docs.devexpress.com/WPF/8862/controls-and-libraries/data-editors/editor-types/lookupedit) class.
+This example uses custom `FilterPopupTemplateSelector` that allows to implement different filter data templates for different fields. Now it replaces all default filters with a custom control inherited from the [LookUpEdit](https://docs.devexpress.com/WPF/8862/controls-and-libraries/data-editors/editor-types/lookupedit) class.
 
 ![screenshot](./images/screenshot_19.1.png)
 
