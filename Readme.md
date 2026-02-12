@@ -24,7 +24,7 @@ This example uses custom `FilterPopupTemplateSelector` that allows to implement 
 
 * [Filtering Basics](https://docs.devexpress.com/WPF/8010)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-pivot-grid-implement-a-custom-filter-popup&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-pivot-grid-implement-a-custom-filter-popup&~~~was_helpful=no)
 
